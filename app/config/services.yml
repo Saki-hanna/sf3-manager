@@ -1,0 +1,18 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    em.abstract:
+        abstract: true
+        arguments:
+            - '@doctrine.orm.entity_manager'
+
+    em.stuff:
+        class: 'AppBundle\Manager\StuffManager'
+        parent: em.abstract
+
+    em.other:
+        class: 'AppBundle\Manager\OtherManager'
+        parent: em.abstract
